@@ -1,18 +1,25 @@
 // cmmonjs规范
-const Name = require('./controllers/Name')
-const aaTpl = require('./views/aa.art')
-
+const indexTpl = require('./views/index.html')
+const { list } = require('./controllers/index')
 // es6
 // import {name} from './controllers/name'
 // console.log(name)
 
-async function getName(){
-    console.log(Name.name)
-    const name = await Name.getName()
-    console.log(name)
-}
-getName()
+const renderIndexTpl = template.render(indexTpl, {})
+
+$('#app').html(renderIndexTpl)
+
+list()
 
 
-const newStr = template.render(aaTpl, {title:'buff'})
-console.log(newStr)
+// banner
+var mySwiper = new Swiper('.swiper-container',{
+    autoplay : true,
+    loop : true,
+    scrollbar : {
+        el : '.swiper-scrollbar',
+        dragSize : 30,
+    },
+});
+mySwiper.scrollbar.$dragEl.css('background','#ffa630')
+mySwiper.scrollbar.$el.css('background','rgba(255,255,255,0.6)');

@@ -65,7 +65,7 @@ function packjs(){
                     }
                 },
                 {
-                    test : /\.art$/,
+                    test : /\.html$/,
                     loader : 'string-loader'
                 }
             ]
